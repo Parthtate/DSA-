@@ -41,3 +41,14 @@ LinkedList.prototype.insertAtEnd = function(data){
 
     last = newNode;
 }
+
+// insert at given node.
+LinkedList.prototype.insertAfter = function(prevNode, data){
+    // check if node cannot be given.
+    if(!prevNode){
+        console.log("The give prev node cannot be null");
+        return;
+    }
+    const newNode = new Node(data, prevNode.next);
+    prevNode.next = newNode
+}
