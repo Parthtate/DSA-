@@ -81,3 +81,31 @@ LinkedList.prototype.deleteEndNode = function(){
 
     secondNode.next = null;
 }
+
+// delete the node by key. (select node and delete.)
+LinkedList.prototype.deleteByKey = function(key){
+    // checking if node is empty
+    if(!this.head){
+        console.log("The node is empty")
+        return
+    }
+
+    // key found at head.
+    if(this.head.next === key){
+        this.head = this.head.next
+        return
+    }
+
+    // traverse node for key.
+    let current = this.head
+    while(current.next !== null){
+        if(current.next === key){
+            current.next = current.next.next
+            return
+        }
+        current = current.next
+    }
+    // (optional) if key is node present in arguments.
+    console.log("No node found with key: ", key)
+
+}
