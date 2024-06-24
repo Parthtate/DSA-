@@ -109,3 +109,51 @@ LinkedList.prototype.deleteByKey = function(key){
     console.log("No node found with key: ", key)
 
 }
+
+// search node by key
+LinkedList.prototype.search = function(key){
+    let current = this.head
+
+    while(current){
+        if (current.data === key ) {
+            return true
+        }
+        current = current.next
+    }
+    return false
+}
+ 
+// travsal print all nodes.
+LinkedList.prototype.printList = function(){
+    let current = this.head
+
+    // store data in empty Array.
+    let listValue = []
+    while (current) {
+       listValue.push(current.data)
+        current = current.next // updation(iteration) the 
+    }
+    
+    if (current.length > 0) {
+        console.log(listValue.join(" -> "));
+    } else {
+        console.log("The linkedlist is empty");
+    }
+}
+
+// Reverse the linkedlist.
+LinkedList.prototype.reverse = function(){
+    let current = this.head
+    let next = null
+    let prev = null
+
+    while(current){
+        next = current.next // 1.go to the jump to next node
+        current.next = prev // 2. change pointer next to previous node.
+        prev = current // 3. update prev & go to next node.
+        current = next // 4. then update current node to next node. & so on....
+    }
+
+    // After at the end, update head
+    prev = this.head
+}
