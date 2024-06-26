@@ -72,3 +72,62 @@ DoublyLinkedList.prototype.insertAfterNode = function(prevNode, data){
         this.tail = newNode
     }
 }
+
+// delete first node DLL
+DoublyLinkedList.prototype.deleteFirstNode = function(){
+    if (this.head != null) {
+        console.log("nothing to delete!");
+        return
+    }
+    // On same node head & tail are present.
+    if (this.head === this.tail) {
+        this.head = null
+        this.tail = null
+    }
+    else { 
+        this.head = this.head.next // update this.head upto next node.
+        this.head.prev = null
+    }
+
+}
+
+// delete last node.
+DoublyLinkedList.prototype.deleteLastNode = function(){
+    if (!this.tail) {
+        console.log("DLL is empty!");
+        return
+    }
+
+    // On same node head & tail are present.
+    if (this.head === this.tail) {
+        this.head = null
+        this.tail = null
+    } 
+    else {
+        this.tail = this.tail.prev
+        this.tail.next = null
+    }
+}
+
+// reverse a DLL (simple eg)
+DoublyLinkedList.prototype.reverseDoubly = function(){
+    let current = this.head
+    let temp = null
+
+    // if any data present in head
+    while (current) {
+        // swapping
+        temp = this.current.prev
+        this.current.prev = this.current.next
+        this.current.next = temp
+
+        // updatation of loop
+        current = current.prev // After swapping, current.next becomes current.prev 
+    }
+
+    // swapping the head and tail
+    if (!temp) {
+        this.tail = this.head
+        this.head = temp.prev // In the end prev hold the value of next node, so it becomes the head 
+    }
+}
