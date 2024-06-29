@@ -5,7 +5,7 @@
 4. 
 */
 
-class Node {
+class BSTNode {
     constructor(node){
         this.node = node
         this.left = left
@@ -13,8 +13,8 @@ class Node {
     }
 }
 
-class Tree {
+class BinarySearchTree {
     constructor(){
-        
+        this.root = null
     }
 }
