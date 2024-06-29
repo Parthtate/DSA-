@@ -6,10 +6,10 @@
 */
 
 class BSTNode {
-    constructor(node){
-        this.node = node
-        this.left = left
-        this.right = right
+    constructor(key){
+        this.key = key
+        this.left = null
+        this.right = null
     }
 }
 
