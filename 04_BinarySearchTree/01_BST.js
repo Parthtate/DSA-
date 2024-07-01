@@ -45,4 +45,46 @@ class BinarySearchTree {
             }
         }
     }
+/********************************************************************************************************************** */
+    // delete node
+    delete(key){
+        this.root = this.deleteNode(this.root, key) 
+    }
+
+    deleteNode(node, key){ // node -> root
+        if (node == null) {
+            return null
+        }
+        
+        if (key < node.key) {
+            node.left = this.deleteNode(node.left, key)
+        } else if (key > node.key) {
+            node.right = this.deleteNode(node.right, key)
+        }
+        else {
+            // for leafNode deletion
+            if (node.left === null && node.right === null) {
+                return null;
+                // for 1 node deletion(replace the node)
+            } else if (node.left === null){
+                return this.right
+            } else if (node.right === null){
+                return node.left
+            } 
+            // for both 2 node
+            else {
+                let tempNode = this.findMinNode(node.right)
+                node.key = tempNode.key // replace the given node to existing node
+                node.right = this.deleteNode(node.right, tempNode.key)
+            }
+        }
+        return node
+        
+    }
+    findMinNode(node){
+        while (node.left !== null) {
+            node = node.left
+        }
+        return node
+    }
 }
