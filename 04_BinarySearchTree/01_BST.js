@@ -87,4 +87,54 @@ class BinarySearchTree {
         }
         return node
     }
+
+    /********************************************************************************************************************************** */
+    // Pre-In-Post order traversal 
+
+    // PreOrder traversal (Root, leftNode, RightNode)
+    preOrderTraversal(){
+        const reuslt = []
+        this.preOrder(this.root, reuslt)
+        return reuslt
+    }
+
+    preOrder(){
+        if (node !== null) {
+            result.push(node.key)
+            this.preOrder(node.left, result)
+            this.preOrder(node.right, result)
+        } 
+    }
+
+    // InOrder traversal (LeftNode, root, RightNode)
+    // Writing logic first
+    inOrderTraversal(){
+        const result = []
+        this.inOrder(this.root, result)
+        return result
+    }
+
+    // Writing usages logic
+    inOrder(){
+        if (node !== null) {
+            this.inOrder(node.left, result)
+            result.push(node.key)
+            this.inOrder(node.right, result)
+        }
+    }
+
+    // PostOrder Traversal (LeftNode, RightNode, root)
+    postOrderTraversal(){
+        const result = []
+        this.postOrder(this.root, result)
+        return result 
+    }
+
+    postOrder(){
+        this.postOrder(node.left, result)
+        this.postOrder(node.right, result)
+        result.push(node.key)
+    }
+
+
 }
