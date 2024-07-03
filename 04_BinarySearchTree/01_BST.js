@@ -28,15 +28,18 @@ class BinarySearchTree {
             insertNode(this.root, newNode)
         }
 
-        insertNode(node, newNode){ // node -> this.root // created new root (recursion) part divided tree
+        insertNode(node, newNode)
+         { // node -> this.root // created new root (recursion) part divided tree
             if (newNode.key < node.key) {
+
                 if (node.left === null) {
                     node.left = newNode
                 } else {
                     this.insertNode(node.left, newNode)
-                } // this part is called recursion, method called multiple time when is needed.
 
-            } else {
+                     } // this part is called recursion, method called multiple time when is needed.
+                     
+                }else {
                 if (this.right === null) {
                     this.right = newNode
                 } else {
